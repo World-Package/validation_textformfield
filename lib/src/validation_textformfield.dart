@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Emailvalidationtextfield extends StatefulWidget {
+class EmailValidationTextField extends StatefulWidget {
   final TextEditingController? textEditingController;
   final String? validatorMassage;
   final String? whenTextFieldEmpty;
@@ -19,7 +19,7 @@ class Emailvalidationtextfield extends StatefulWidget {
   final Radius? cursorRadius;
   final double? cursorWidth;
   final TextInputAction? textInputAction;
-  const Emailvalidationtextfield(
+  const EmailValidationTextField(
       {Key? key,
       this.textInputAction,
       this.style,
@@ -42,11 +42,11 @@ class Emailvalidationtextfield extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<Emailvalidationtextfield> createState() =>
-      _EmailvalidationtextfieldState();
+  State<EmailValidationTextField> createState() =>
+      _EmailValidationTextFieldState();
 }
 
-class _EmailvalidationtextfieldState extends State<Emailvalidationtextfield> {
+class _EmailValidationTextFieldState extends State<EmailValidationTextField> {
   final RegExp emailRegex = new RegExp(
       r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
 

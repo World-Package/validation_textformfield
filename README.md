@@ -26,7 +26,7 @@ iOS, Android, web, Windows, macOS, and Linux.
 
 ```dart
 
-Emailvalidationtextfield(
+EmailValidationTextField(
  whenTextFieldEmpty: "Please enter  email",
  validatorMassage: "Please enter valid email",
  decoration: InputDecoration(
