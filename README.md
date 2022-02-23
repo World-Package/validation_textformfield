@@ -48,7 +48,7 @@ See the example app for more complex examples.
 ![Email](https://user-images.githubusercontent.com/99797282/154927464-add2b611-27b3-49cf-8e5f-6fba74e0239c.gif)
 
 
-## Getting Started
+# Getting Started
 
 For help getting started with Flutter, view our online
 [documentation](https://flutter.dev/).
