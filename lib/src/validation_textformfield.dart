@@ -53,7 +53,10 @@ class _EmailvalidationtextfieldState extends State<Emailvalidationtextfield> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onSaved: (value) {},
+      onSaved: (value) {
+        return widget.onSaved!(value);
+
+      },
       onTap: () {},
       textInputAction: widget.textInputAction,
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -62,7 +65,10 @@ class _EmailvalidationtextfieldState extends State<Emailvalidationtextfield> {
       cursorWidth: widget.cursorWidth ?? 2,
       cursorColor: widget.cursorColor ?? Colors.black,
       keyboardAppearance: widget.keyboardAppearance,
-      onChanged: (value) {},
+      onChanged: (value) {
+        return widget.onChanged!(value);
+
+      },
       showCursor: widget.showCursor ?? true,
       readOnly: widget.readOnly ?? false,
       autocorrect: widget.autocorrect ?? true,
