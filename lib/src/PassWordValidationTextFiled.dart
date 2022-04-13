@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../model/connect.dart';
+
 class PassWordValidationTextFiled extends StatefulWidget {
   final int passwordMaxLength;
   final int passwordMinLength;
@@ -283,7 +285,7 @@ class _PassWordValidationTextFiledState
             widget.lineIndicator ? _checkPassword(value) : false;
 
             setState(() {
-              // pwdSetGet.passwordText = value;
+              PwdSetGet.passwordText = value;
             });
             return widget.onChanged!(value);
           },

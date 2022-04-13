@@ -43,49 +43,39 @@ EmailValidationTextField(
 )
 ```
 ```dart
- PassWordValidationTextFiled(
+PassWordValidationTextFiled(
+ lineIndicator:false,
+ passwordMinError: "Must be more than 5 charater", 
+ hasPasswordEmpty: "Password is Empty",
+ passwordMaxError: "Password to long", 
+ passWordUpperCaseError: "at least one Uppercase (Capital)lette",
+ passWordDigitsCaseError: "at least one digit",
+ passwordLowercaseError: "at least one lowercase character",
+ passWordSpecialCharacters: "at least one Special Characters",
+ obscureText: _isObscure,
+ scrollPadding: EdgeInsets.only(left: 60),
+ onChanged: (value) {
+  // print(value);
+ },
+ passTextEditingController: txtPasswordCtrl,
+ passwordMaxLength: 10,
+ passwordMinLength: 5,
+),
+```
+```dart
 
-                    lineIndicator:false,
-                    passwordMinError: "Must be more than 5 charater",
-                    hasPasswordEmpty: "Password is Empty",
-                    passwordMaxError: "Password to long",
-                    passWordUpperCaseError:
-                        "at least one Uppercase (Capital)lette",
-                    passWordDigitsCaseError: "at least one digit",
-passwordLowercaseError: "at least one lowercase character",
-passWordSpecialCharacters: "at least one Special Characters",
-
-                    obscureText: _isObscure,
-                    scrollPadding: EdgeInsets.only(left: 60),
-                    onChanged: (value) {
-                      // print(value);
-                    },
-                    passTextEditingController: txtPasswordCtrl,
-                     passwordMaxLength: 10,
-                    passwordMinLength: 5,
-                    // validatorMassage: "Please enter valid Password",
-                    decoration: InputDecoration(
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            _isObscure ? Icons.visibility : Icons.visibility_off,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _isObscure = !_isObscure;
-                            });
-                          },
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black, width: 0.5),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black, width: 0.5),
-                        ),
-                        border: OutlineInputBorder(),
-                        counterText: '',
-                        hintStyle:
-                            TextStyle(color: Colors.black, fontSize: 18.0)),
-                  ),
+ConfirmPassWordValidationTextFromField(
+ obscureText: _isObscure,
+// obscureText: _isObscure,
+ scrollPadding: EdgeInsets.only(left: 60),
+ onChanged: (value) {
+// print(value);
+ },
+ whenTextFieldEmpty: "Empty",
+ validatorMassage: "Password not Match",
+ confirmtextEditingController: txtConfPasswordCtrl,
+// passtControllername:txtPasswordCtrl
+),
 ```
 
 See the example app for more complex examples.
