@@ -1,6 +1,3 @@
-
-
-class PwdSetGet{
-
+class PwdSetGet {
   static String? passwordText;
 }

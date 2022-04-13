@@ -40,40 +40,40 @@ class PassWordValidationTextFiled extends StatefulWidget {
   final TextInputAction? textInputAction;
   const PassWordValidationTextFiled(
       {Key? key,
-        this.textInputAction,
-        required this.passwordMinLength,
-        required this.lineIndicator,
-        required this.passwordMaxLength,
-        this.passwordLowercaseError,
-        this.lineIndicatorBackgroundColor,
-        this.style,
-        this.passwordMinError,
-        this.passwordMaxError,
-        this.maxLength,
-        this.passWordDigitsCaseError,
-        this.scrollPadding,
-        this.obscuringCharacter,
-        this.passWordSpecialCharacters,
-        this.onSaved,
-        this.expands,
-        this.obscureText,
-        this.enableSuggestions,
-        this.onTap,
-        this.hasPasswordEmpty,
-        this.passWordUpperCaseError,
-        this.cursorHeight,
-        this.cursorRadius,
-        this.cursorWidth,
-        this.cursorColor,
-        this.keyboardAppearance,
-        this.readOnly,
-        this.onChanged,
-        this.showCursor,
-        this.autoCorrect,
-        this.keyboardType,
-        this.decoration,
-        this.passTextEditingController,
-        this.validatorMassage})
+      this.textInputAction,
+      required this.passwordMinLength,
+      required this.lineIndicator,
+      required this.passwordMaxLength,
+      this.passwordLowercaseError,
+      this.lineIndicatorBackgroundColor,
+      this.style,
+      this.passwordMinError,
+      this.passwordMaxError,
+      this.maxLength,
+      this.passWordDigitsCaseError,
+      this.scrollPadding,
+      this.obscuringCharacter,
+      this.passWordSpecialCharacters,
+      this.onSaved,
+      this.expands,
+      this.obscureText,
+      this.enableSuggestions,
+      this.onTap,
+      this.hasPasswordEmpty,
+      this.passWordUpperCaseError,
+      this.cursorHeight,
+      this.cursorRadius,
+      this.cursorWidth,
+      this.cursorColor,
+      this.keyboardAppearance,
+      this.readOnly,
+      this.onChanged,
+      this.showCursor,
+      this.autoCorrect,
+      this.keyboardType,
+      this.decoration,
+      this.passTextEditingController,
+      this.validatorMassage})
       : super(key: key);
 
   @override
@@ -107,50 +107,41 @@ class _PassWordValidationTextFiledState
         _strength = 1 / 4;
         _displayText = widget.passwordMinError!;
       });
-    }
-    else
-    if (!hasDigits.hasMatch(_password)) {
+    } else if (!hasDigits.hasMatch(_password)) {
       setState(() {
         // Password length >= 8
         // But doesn't contain both letter and digit characters
         _strength = 3 / 4;
         _displayText = widget.passWordDigitsCaseError!;
       });
-    }
-    else if (!hasLowercase.hasMatch(_password)) {
+    } else if (!hasLowercase.hasMatch(_password)) {
       setState(() {
         // Password length >= 8
         // But doesn't contain both letter and digit characters
         _strength = 3 / 4;
         _displayText = widget.passwordLowercaseError!;
       });
-    }
-    else if (!hasUppercase.hasMatch(_password) ) {
+    } else if (!hasUppercase.hasMatch(_password)) {
       setState(() {
         // Password length >= 8
         // But doesn't contain both letter and digit characters
         _strength = 3 / 4;
         _displayText = widget.passWordUpperCaseError!;
       });
-    }
-    else if (!hasSpecialCharacters.hasMatch(_password)) {
+    } else if (!hasSpecialCharacters.hasMatch(_password)) {
       setState(() {
         // Password length >= 8
         // But doesn't contain both letter and digit characters
         _strength = 3 / 4;
         _displayText = widget.passWordSpecialCharacters!;
       });
-    }
-    else if (_password.length > widget.passwordMaxLength.toInt()) {
+    } else if (_password.length > widget.passwordMaxLength.toInt()) {
       setState(() {
         _strength = 3 / 4;
         // _strength = 2 / 4;
         _displayText = widget.passwordMaxError!;
       });
-    }
-
-
-    else {
+    } else {
       // Password length >= 8
       // Password contains both letter and digit characters
       setState(() {
@@ -158,14 +149,11 @@ class _PassWordValidationTextFiledState
         _displayText = 'Your password is great';
       });
     }
-
   }
 
   _passValidation(String value) {
     _psss = value.trim();
     if (_psss.isEmpty) {
-
-
       // _strength = 0;
 
       return widget.hasPasswordEmpty;
@@ -259,7 +247,7 @@ class _PassWordValidationTextFiledState
             //    return null;
             //  }
           },
-          scrollPadding: widget.scrollPadding ?? EdgeInsets.all(00.0),
+          scrollPadding: widget.scrollPadding ?? const EdgeInsets.all(00.0),
           maxLength: widget.maxLength,
           expands: widget.expands ?? false,
           enableSuggestions: widget.enableSuggestions ?? false,
@@ -267,6 +255,7 @@ class _PassWordValidationTextFiledState
           obscureText: widget.obscureText ?? false,
 
           onSaved: (value) {
+            // ignore: void_checks
             return widget.onSaved!(value);
           },
 
@@ -281,12 +270,12 @@ class _PassWordValidationTextFiledState
           keyboardAppearance: widget.keyboardAppearance,
 
           onChanged: (value) {
-            // widget.lineIndicator?_passValidation(value);
             widget.lineIndicator ? _checkPassword(value) : false;
 
             setState(() {
               PwdSetGet.passwordText = value;
             });
+            // ignore: void_checks
             return widget.onChanged!(value);
           },
           showCursor: widget.showCursor ?? true,
@@ -299,25 +288,25 @@ class _PassWordValidationTextFiledState
           // obscureText: isSecure,
           decoration: widget.decoration,
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
         widget.lineIndicator
             ? LinearProgressIndicator(
-          value: _strength,
-          backgroundColor:
-          widget.lineIndicatorBackgroundColor ?? Colors.grey[300],
-          color: _strength <= 1 / 4
-              ? Colors.red
-              : _strength == 2 / 4
-              ? Colors.yellow
-              : _strength == 3 / 4
-              ? Colors.red
-              : Colors.green,
-          minHeight: 6,
-        )
-            : SizedBox(),
-        SizedBox(
+                value: _strength,
+                backgroundColor:
+                    widget.lineIndicatorBackgroundColor ?? Colors.grey[300],
+                color: _strength <= 1 / 4
+                    ? Colors.red
+                    : _strength == 2 / 4
+                        ? Colors.yellow
+                        : _strength == 3 / 4
+                            ? Colors.red
+                            : Colors.green,
+                minHeight: 6,
+              )
+            : const SizedBox(),
+        const SizedBox(
           height: 5,
         ),
         Text(

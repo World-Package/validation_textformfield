@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-
 import '../model/connect.dart';
 
-class ConfirmPassWordValidationTextFromField extends StatefulWidget  {
+class ConfirmPassWordValidationTextFromField extends StatefulWidget {
   //
 
   final TextEditingController? passtextEditingController;
@@ -32,33 +31,32 @@ class ConfirmPassWordValidationTextFromField extends StatefulWidget  {
   final double? cursorWidth;
   final TextInputAction? textInputAction;
   const ConfirmPassWordValidationTextFromField(
-
       {Key? key,
-        this.textInputAction,
-        this.style,
-        this.maxLength,
-        this.passtextEditingController,
-        this.scrollPadding,
-        this.obscuringCharacter,
-        this.onSaved,
-        this.expands,
-        this.obscureText,
-        this.enableSuggestions,
-        this.onTap,
-        this.whenTextFieldEmpty,
-        this.cursorHeight,
-        this.cursorRadius,
-        this.cursorWidth,
-        this.cursorColor,
-        this.keyboardAppearance,
-        this.readOnly,
-        this.onChanged,
-        this.showCursor,
-        this.autocorrect,
-        this.keyboardType,
-        this.decoration,
-        this.confirmtextEditingController,
-        this.validatorMassage})
+      this.textInputAction,
+      this.style,
+      this.maxLength,
+      this.passtextEditingController,
+      this.scrollPadding,
+      this.obscuringCharacter,
+      this.onSaved,
+      this.expands,
+      this.obscureText,
+      this.enableSuggestions,
+      this.onTap,
+      this.whenTextFieldEmpty,
+      this.cursorHeight,
+      this.cursorRadius,
+      this.cursorWidth,
+      this.cursorColor,
+      this.keyboardAppearance,
+      this.readOnly,
+      this.onChanged,
+      this.showCursor,
+      this.autocorrect,
+      this.keyboardType,
+      this.decoration,
+      this.confirmtextEditingController,
+      this.validatorMassage})
       : super(key: key);
 
   @override
@@ -71,28 +69,25 @@ class _ConfirmPassWordValidationTextFromFieldState
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        scrollPadding: widget.scrollPadding ?? EdgeInsets.all(00.0),
+        scrollPadding: widget.scrollPadding ?? const EdgeInsets.all(00.0),
         maxLength: widget.maxLength,
         expands: widget.expands ?? false,
         enableSuggestions: widget.enableSuggestions ?? false,
         obscuringCharacter: widget.obscuringCharacter ?? "*",
         obscureText: widget.obscureText ?? false,
-
         onSaved: (value) {
+          // ignore: void_checks
           return widget.onSaved!(value);
         },
-
         textInputAction: widget.textInputAction,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         cursorHeight: widget.cursorHeight,
         cursorRadius: widget.cursorRadius,
         cursorWidth: widget.cursorWidth ?? 2,
-
         cursorColor: widget.cursorColor ?? Colors.black,
-
         keyboardAppearance: widget.keyboardAppearance,
-
         onChanged: (value) {
+          // ignore: void_checks
           return widget.onChanged!(value);
         },
         showCursor: widget.showCursor ?? true,
@@ -100,7 +95,6 @@ class _ConfirmPassWordValidationTextFromFieldState
         autocorrect: widget.autocorrect ?? true,
         style: widget.style,
         keyboardType: widget.keyboardType,
-
         controller: widget.confirmtextEditingController,
         // obscureText: isSecure,
         decoration: widget.decoration,
@@ -116,13 +110,10 @@ class _ConfirmPassWordValidationTextFromFieldState
         //
         //   return null;
         // },
-        validator: (value){
-          if(value!.isEmpty)
-            return widget.whenTextFieldEmpty;
-          if(value !=PwdSetGet.passwordText)
-            return widget.validatorMassage;
+        validator: (value) {
+          if (value!.isEmpty) return widget.whenTextFieldEmpty;
+          if (value != PwdSetGet.passwordText) return widget.validatorMassage;
           return null;
-        }
-    );
+        });
   }
 }

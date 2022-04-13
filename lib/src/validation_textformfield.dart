@@ -47,15 +47,15 @@ class EmailValidationTextField extends StatefulWidget {
 }
 
 class _EmailValidationTextFieldState extends State<EmailValidationTextField> {
-  final RegExp emailRegex = new RegExp(
+  final RegExp emailRegex = RegExp(
       r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: (value) {
+        // ignore: void_checks
         return widget.onSaved!(value);
-
       },
       onTap: () {},
       textInputAction: widget.textInputAction,
@@ -66,8 +66,8 @@ class _EmailValidationTextFieldState extends State<EmailValidationTextField> {
       cursorColor: widget.cursorColor ?? Colors.black,
       keyboardAppearance: widget.keyboardAppearance,
       onChanged: (value) {
+        // ignore: void_checks
         return widget.onChanged!(value);
-
       },
       showCursor: widget.showCursor ?? true,
       readOnly: widget.readOnly ?? false,
