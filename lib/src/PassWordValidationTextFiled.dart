@@ -288,30 +288,33 @@ class _PassWordValidationTextFiledState
           // obscureText: isSecure,
           decoration: widget.decoration,
         ),
-        const SizedBox(
-          height: 8,
+        SizedBox(
+          height:widget.lineIndicator? 8:0,
         ),
         widget.lineIndicator
             ? LinearProgressIndicator(
-                value: _strength,
-                backgroundColor:
-                    widget.lineIndicatorBackgroundColor ?? Colors.grey[300],
-                color: _strength <= 1 / 4
-                    ? Colors.red
-                    : _strength == 2 / 4
-                        ? Colors.yellow
-                        : _strength == 3 / 4
-                            ? Colors.red
-                            : Colors.green,
-                minHeight: 6,
-              )
-            : const SizedBox(),
-        const SizedBox(
-          height: 5,
+          value: _strength,
+          backgroundColor:
+          widget.lineIndicatorBackgroundColor ?? Colors.grey[300],
+          color: _strength <= 1 / 4
+              ? Colors.red
+              : _strength == 2 / 4
+              ? Colors.yellow
+              : _strength == 3 / 4
+              ? Colors.red
+              : Colors.green,
+          minHeight: 6,
+        )
+            : const SizedBox(
+          height: 0,
         ),
+        SizedBox(
+          height:widget.lineIndicator? 5:0,
+        ),
+        widget.lineIndicator?
         Text(
           _displayText,
-        ),
+        ):Container()
       ],
     );
   }
